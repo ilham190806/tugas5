@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+    <type>fa</type>
+    <automaton>
+        <!--The list of states.-->
+        <state id="0" name="S">
+            <x>50.0</x>
+            <y>150.0</y>
+            <initial/>
+        </state>
+        <state id="1" name="A">
+            <x>200.0</x>
+            <y>80.0</y>
+        </state>
+        <state id="2" name="B">
+            <x>200.0</x>
+            <y>220.0</y>
+        </state>
+        <state id="3" name="F">
+            <x>350.0</x>
+            <y>150.0</y>
+            <final/>
+        </state>
+        <!--The list of transitions.-->
+        <!-- S → aA : δ(S, a) = A -->
+        <transition>
+            <from>0</from>
+            <to>1</to>
+            <read>a</read>
+        </transition>
+        <!-- S → bB : δ(S, b) = B -->
+        <transition>
+            <from>0</from>
+            <to>2</to>
+            <read>b</read>
+        </transition>
+        <!-- A → aA : δ(A, a) = A (self-loop) -->
+        <transition>
+            <from>1</from>
+            <to>1</to>
+            <read>a</read>
+        </transition>
+        <!-- A → bB : δ(A, b) = B -->
+        <transition>
+            <from>1</from>
+            <to>2</to>
+            <read>b</read>
+        </transition>
+        <!-- A → a : δ(A, a) = F -->
+        <transition>
+            <from>1</from>
+            <to>3</to>
+            <read>a</read>
+        </transition>
+        <!-- B → bB : δ(B, b) = B (self-loop) -->
+        <transition>
+            <from>2</from>
+            <to>2</to>
+            <read>b</read>
+        </transition>
+        <!-- B → aA : δ(B, a) = A -->
+        <transition>
+            <from>2</from>
+            <to>1</to>
+            <read>a</read>
+        </transition>
+        <!-- B → b : δ(B, b) = F -->
+        <transition>
+            <from>2</from>
+            <to>3</to>
+            <read>b</read>
+        </transition>
+    </automaton>
+</structure>
